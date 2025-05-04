@@ -1,0 +1,22 @@
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    gap: 8px; 
+}
+
+.keyboard-key {
+    padding: 10px;
+    font-size: 12px;
+    background-color: #d3d6da;
+    border: 0;
+    font-weight: 600;
+    border-radius: 4px;
+    height: 50px; 
+    cursor: pointer;
+}
