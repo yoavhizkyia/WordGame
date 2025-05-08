@@ -1,6 +1,7 @@
 import React from "react";
 
 import './keyboardStyles.css';
+import CharKeyboard from "../charKeyboard";
 
 const KEYBOARD_ROWS = [
     ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
@@ -8,19 +9,13 @@ const KEYBOARD_ROWS = [
     ["ENTER", "Z", "X", "C", "V", "B", "N", "M", "⌫"],
 ];
 
-const Keyboard = ({ actionListener }) => {
+const Keyboard = ({actionListener}) => {
     return (
         <div className="keyboard">
             {KEYBOARD_ROWS.map((row, rowIndex) => (
                 <div key={rowIndex} className="keyboard-row">
                     {row.map((key) => (
-                        <button
-                            key={key}
-                            onClick={() => actionListener.emit("keyPress", key)}
-                            className="keyboard-key"
-                        >
-                            {key}
-                        </button>
+                        <CharKeyboard key={key} actionListener={actionListener} char={key} />
                     ))}
                 </div>
             ))}

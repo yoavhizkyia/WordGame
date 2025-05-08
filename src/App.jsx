@@ -3,15 +3,15 @@ import React from "react";
 import './App.css';
 import WordBox from "./components/wordBox";
 import Keyboard from "./components/keyboard";
-import { useWordGame } from "./hooks/useWordGame";
+import MyActionListener from "./MyActionListener";
 
 const App = () => {
-  const { chars, wordValidation, actionListener } = useWordGame();
+  const actionListener = new MyActionListener();
 
   return (
     <div className="app-container">
       <h1>Word Game</h1>
-      <WordBox chars={chars} wordValidation={wordValidation} />
+      <WordBox actionListener={actionListener} />
       <Keyboard actionListener={actionListener} />
     </div>
   );

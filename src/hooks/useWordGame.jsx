@@ -1,9 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
 
-import MyActionListener from "../myActionListener";
-
-const actionListener = new MyActionListener();
-
 const isEnglishWord = async (word) => {
   const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
   return res.ok;
@@ -11,7 +7,7 @@ const isEnglishWord = async (word) => {
 
 const isValidChar = (char) => /^[A-Z]$/.test(char);
 
-export const useWordGame = () => {
+export const useWordGame = ({actionListener}) => {
   const [chars, setChars] = useState([]);
   const [wordValidation, setWordValidation] = useState(null); // null | "valid" | "invalid"
 

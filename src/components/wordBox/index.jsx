@@ -1,6 +1,7 @@
 import React from "react";
 
 import './wordBoxStyles.css'
+import { useWordGame } from "../../hooks/useWordGame";
 
 const getBorderColor = (wordValidation) => {
     if (wordValidation === "valid") return "green";
@@ -8,7 +9,9 @@ const getBorderColor = (wordValidation) => {
     return "#ccc";
 };
 
-const WordBox = ({ chars, wordValidation }) => {
+const WordBox = ({actionListener}) => {
+    const { chars, wordValidation } = useWordGame({actionListener});
+
     const filledCharBoxes = [...chars, ...Array(5 - chars.length).fill("")];
 
     return (
